@@ -1,0 +1,20 @@
+.open {
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #CCC;
+    background: transparent -moz-linear-gradient(center top , #F4F4F4, #E8E8E8) repeat scroll 0% 0%;
+    padding: 8px;
+}
+a {
+    color: #999;
+    text-decoration: none;
+}
+.popbox {
+    text-align: center;
+}
+body {
+    text-align: center;
+    font-family: georgia;
+    font-size: 22px;
+    text-shadow: 1px 1px 1px #FFF;
+}
