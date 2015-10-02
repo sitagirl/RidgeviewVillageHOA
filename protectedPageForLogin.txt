@@ -1,0 +1,10 @@
+Include this sample piece of code on top of your protected pages:
+<?PHP
+require_once("membersite_config.php");
+ 
+if(!$fgmembersite->CheckLogin())
+{
+    $fgmembersite->RedirectToURL("login.php");
+    exit;
+}
+?>
