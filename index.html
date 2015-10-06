@@ -7,30 +7,23 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <title>Ridgeview Village HOA</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom Javascripts -->
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=3.0.1'></script>  
+    <script src="js/infinite-rotator.js"></script>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-    <link href="css/RidgeviewVillageHOA.css" rel="stylesheet">    
+    <link href="css/RidgeviewVillageHOA.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/contactform.css" />	
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="js/ie-emulation-modes-warning.js"></script>
-
-        <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!--<script src="js/ie10-viewport-bug-workaround.js"></script> -->
-    
     <script type="text/javascript">
       function loadEvents() {
         var mailString;
@@ -45,15 +38,7 @@
         updateMailString();
       }
     </script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="http://code.jquery.com/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.js"></script>
-    <script src="js/imagerotator.js"></script>
+	
   </head>
 
   <body>
@@ -70,12 +55,12 @@
           <a class="navbar-brand" href="#">Ridgeview Village Condominiums HOA</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-right" id='login' action='login.php' method='post' accept-charset='UTF-8'>
             <div class="form-group">
-              <input type="text" placeholder="Username" class="form-control">
+              <input type="text" placeholder="Username" class="form-control" id='username'>
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Password" class="form-control" id='password'>
             </div>
             <button type="submit" class="btn btn-success">Homeowner Sign in</button>
           </form>
@@ -83,114 +68,85 @@
       </div>
     </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <!-- Main jumbotron for a primary marketing message or call to action   -->
+
     <div class="jumbotron">
-      <div class="container"> 
-  <!--      <img class="ridgeview" src="images\Ridgeview2.jpg" alt="Ridgeview Village">  -->
-        <img src="images/1.jpg" alt="rotating image" id="rotator">
-      </div>
+			<img src="images/1.jpg" alt="Ridgeview Village 1" class="rotating-item" />
+			<img src="images/2.jpg" alt="Ridgeview Village 2" class="rotating-item" />
+			<img src="images/3.jpg" alt="Ridgeview Village 3" class="rotating-item" />
+			<img src="images/4.jpg" alt="Ridgeview Village 4" class="rotating-item" />
     </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <p><h2>Our Home</h2></p>
-      <p>Ridgeview Village is a small 44 unit gated community just east of the Smoketree neighborhood at the intersection of El Cielo and Escoba in Palm Springs. This location is shelterd by and has majestic views of Mt. San Jacinto mountains to the south and west. Amenities include two community pools, spas and tennis courts. The common areas have mature trees and landscaping.  Each unit has a two-car garage. Ridgeview Village is conveniently located minutes from the Palm Springs airport, City Hall and county services and within walking distance of the Smoketree shopping complex. For homeowner-contributed pictures, please visit <a class="btn btn-primary btn-sm" href="#" role="button">Photo Galleries</a></p>
-
+  <div class="info container">
+    <div class="row">
+		<div class="col-md-2" id="ourhome">
+			<h2>Our Home</h2>
+			<p>Ridgeview Village is a small 44 unit gated community just east of the Smoketree neighborhood at the intersection of El Cielo and Escoba in Palm Springs. This location is shelterd by and has majestic views of Mt. San Jacinto mountains to the south and west. Amenities include two community pools, spas and tennis courts. The common areas have mature trees and landscaping.  Each unit has a two-car garage. Ridgeview Village is conveniently located minutes from the Palm Springs airport, City Hall and county services and within walking distance of the Smoketree shopping complex. For homeowner-contributed pictures, please visit <a class="btn btn-primary btn-sm" href="#" role="button">Photo Galleries</a></p>
+		</div>
+		<div class="col-md-2" id="location">
+			<p><h3>Location Map</h3></p>
+			<p><img src="images/RidgeviewCir.png" usemap="#RidgeviewVillage" alt="Ridgeview Village"></p>
+			<map name="RidgeviewVillage">
+			<area  target="_blank" shape="rect" coords="0,0,100,97" alt="Ridgeview Village Map" href="http://www.google.com/maps/place/Ridgeview+Cir+N,+Palm+Springs,+CA+92264/@33.8008745,-116.5091053,17z/data=!3m1!4b1!4m2!3m1!1s0x80db1ca1a20898b9:0x1e148241e6b42aa3"></map>
+		</div>
+	</div>
     <div class="row">
         <div class="col-md-5">
           <h2>Our Community</h2>
-          <p><a class="btn btn-default btn-sm" href="http://www.ci.palm-springs.ca.us/" role="button">Our City</a></p>
-          <p><a class="btn btn-default btn-sm" href="http://en.wikipedia.org/wiki/Coachella_Valley" role="button">Our Valley</a></p>
-          <p><a class="btn btn-default btn-sm" href="http://www.blm.gov/ca/st/en/fo/palmsprings/santarosa.html" role="button">Our Mountains & Canyons</a></p>
+          <p><a class="btn btn-default btn-sm" href="http://www.ci.palm-springs.ca.us/" role="button" target="_blank">Our City</a></p>
+          <p><a class="btn btn-default btn-sm" href="http://en.wikipedia.org/wiki/Coachella_Valley" role="button" target="_blank">Our Valley</a></p>
+          <p><a class="btn btn-default btn-sm" href="http://www.blm.gov/ca/st/en/fo/palmsprings/santarosa.html" role="button" target="_blank">Our Mountains & Canyons</a></p>
         </div>
         <div class="col-md-5">
           <h2>Homeowners*</h2>
-          <p><a class="btn btn-default btn-sm" href="#" role="button">Board Member's Corner</a></p>
-          <p><a class="btn btn-default btn-sm" href="#" role="button">Management Contacts</a></p>
-          <p><a class="btn btn-default btn-sm" href="#" role="button">Meeting Agendas & Minutes</a></p>
+          <p><a class="btn btn-default btn-sm" href="BoardMemberCorner.html" role="button" target=_blank">Board Member's Corner</a></p>
+          <p><a class="btn btn-default btn-sm locked" href="#" role="button" target="_blank">Management Contacts</a></p>
+          <p><a class="btn btn-default btn-sm locked" href="#" role="button" target="_blank">Meeting Agendas & Minutes</a></p>
        </div>
         <div class="col-md-5">
           <h2>Homeowners*</h2>
-          <p><a class="btn btn-default btn-sm" href="#" role="button">Articles of Incorporation/CC&Rs</a></p>
-          <p><a class="btn btn-default btn-sm" href="#" role="button">Financials</a></p>
-          <p><a class="btn btn-default btn-sm" href="#" role="button">Event & Maintenance Notices</a></p>
+          <p><a class="btn btn-default btn-sm locked" href="#" role="button" target="_blank">Articles of Incorporation</a></p>
+          <p><a class="btn btn-default btn-sm locked" href="#" role="button" target="_blank">Financials</a></p>
+          <p><a class="btn btn-default btn-sm locked" href="#" role="button" target="_blank">Event & Maintenance Notices</a></p>
        </div>
         <div class="col-md-5">
           <h2>Committees*</h2>
-          <p><a class="btn btn-default btn-sm" href="#" role="button">Architectural</a></p>
-          <p><a class="btn btn-default btn-sm" href="#" role="button">Landscape</a></p>
-          <p><a class="btn btn-default btn-sm" href="#" role="button">Architectural</a></p>
+          <p><a class="btn btn-default btn-sm" href="ArchitecturalCommittee.html" role="button" target="_blank">Architectural</a></p>
+          <p><a class="btn btn-default btn-sm" href="LandscapeCommittee.html" role="button" target="_blank">Landscape</a></p>
+          <p><a class="btn btn-default btn-sm" href="RulesCommittee.html" role="button" target="_blank">Rules</a></p>
         </div>
         <div class="col-md-5">
           <h2>Other Links</h2>
-          <p><a class="btn btn-default btn-sm" href="http://www.bia.gov/WhoWeAre/RegionalOffices/Pacific/WeAre/PalmSprings/index.htm" role="button">Bureau of Indian Affairs</a></p>
-          <p><a class="btn btn-default btn-sm" href="http://www.dwa.org/" role="button">Desert Water Agency</a></p>
-        <!--  <p><a class="btn btn-default btn-sm" href="#" role="button">Other Links Page</a></p> -->
-          <p class="dropdown">
-            <button class="dropdown-toggle btn btn-default btn-sm" type="button" id="dropdownMenu" data-toggle="dropdown" aria-expanded="true">
+          <p><a class="btn btn-default btn-sm" href="http://www.bia.gov/WhoWeAre/RegionalOffices/Pacific/WeAre/PalmSprings/index.htm" role="button" target="_blank">Bureau of Indian Affairs</a></p>
+          <p><a class="btn btn-default btn-sm" href="http://www.dwa.org/" role="button" target="_blank">Desert Water Agency</a></p>
+          <div class="dropup">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Other Links
               <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="http://coachellavalleygolfcourses.com/" target="_blank">Coachella Valley Golf Courses</a></li>
+				<li><a href="https://www.coachella.com/" target="_blank">Coachella (Music Festival)</a></li>
+				<li><a href="http://www.visitpalmsprings.com/" target="_blank">Palm Springs Visitor's Guide</a></li>
             </ul>
-          </p>
+          </div>
         </div>
     </div>
-      <p><h3>*Links for homeowners only.  Homeowners, please sign in.</h3></p>
-    </div> <!-- /container -->
-  	<footer class="footer-fixed-bottom">
-      <div class="container">
-        <div class="col-md-6">
-          <p><h4>Location map</h4></p>
-          <p><img src="images/RidgeviewCir.png" usemap="#RidgeviewVillage" alt="Ridgeview Village"></p>
-          <map name="RidgeviewVillage">
-          <area  target="_blank" shape="rect" coords="0,0,100,97" alt="Ridgeview Village Map" href="http://www.google.com/maps/place/Ridgeview+Cir+N,+Palm+Springs,+CA+92264/@33.8008745,-116.5091053,17z/data=!3m1!4b1!4m2!3m1!1s0x80db1ca1a20898b9:0x1e148241e6b42aa3"></map>
-        </div>
-        <div class="col-md-6">
-          <p><h4>President</h4></p>
-          <p>xxxxx xxxxx</br>
-          nnnn Ridgeview Cir</br>
-          Palm Springs, CA 92264</br>
-          Tel: (760) nnn-nnnn</p>
-          <p><button type="submit" class="btn btn-success btn-sm"><a href="mailto:rickfay@me.com?Subject=Ridgeview%20Village%20HOA" target="_top"></a>Email</button></p>
-        </div>
-        <div class="col-md-6">
-          <p><h4>Treasurer</h4></p>
-          <p>xxxxx xxxxx</br>
-          nnnn Ridgeview Cir</br>
-          Palm Springs, CA 92264</br>
-          Tel: (760) nnn-nnnn</p>
-          <p><button type="submit" class="btn btn-success btn-sm">Email</button></p>
-        </div>
-        <div class="col-md-6">
-          <p><h4>Board Member</h4></p>
-          <p>xxxxx xxxxx</br>
-          nnnn Ridgeview Cir</br>
-          Palm Springs, CA 92264</br>
-          Tel: (760) nnn-nnnn</p>
-          <p><button type="submit" class="btn btn-success btn-sm">Email</button></p>
-        </div>
-        <div class="col-md-6">
-          <p><h4>Board Member</h4></p>
-          <p>xxxxx xxxxx</br>
-          nnnn Ridgeview Cir</br>
-          Palm Springs, CA 92264</br>
-          Tel: (760) nnn-nnnn</p>
-          <p><button type="submit" class="btn btn-success btn-sm">Email</button></p>
-        </div>
-        <div class="col-md-6">
-          <p><h4>Webmaster</h4></p>
-          <p>Sheila Gehani</br>
-          1765 Ridgeview Cir</br>
-          Palm Springs, CA 92264</br>
-          Tel: (760) nnn-nnnn</p>
-          <p><button type="submit" class="btn btn-success btn-sm"><a href="popup.html" target="_top"></a>Email</button></p>
-        </div>
-      </div>
-    </footer>
-
+  </div>
+  <footer class="footer-fixed-bottom">
+		*Links for homeowners only.  Homeowners, please sign in to access these links.
+			<form class="form-group footer-right">
+				<a class="btn btn-success btn-sm" href="contactform.html" target='_blank'>Contact HOA Board</a>
+				<a class="btn btn-success btn-sm locked" href="mailto:sitagirl.sg54@gmail.com?Subject=Ridgeview%20Village%20HOA" target="_blank">Contact Webmaster*</a>
+			</form>
+  </footer>
+		<script>
+			$('.popover-markup>.trigger').popover({
+			html: true,
+			content: function () {
+				return $(this).parent().find('.contact-form').html();
+				}
+			});
+		</script>
   </body>
 </html>
