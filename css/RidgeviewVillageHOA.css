@@ -156,8 +156,6 @@ a.locked {
 	.footer-fixed-bottom {
 		font-size: 8px bold;
 		height: 340px;}
-<<<<<<< HEAD
-=======
 }
 @media (max-device-width: 380px) {
 	.container h2 {
@@ -171,7 +169,6 @@ a.locked {
 	.footer-fixed-bottom {
 		font-size: 8px bold;
 		height: 800px;}
->>>>>>> origin/gh-pages
 }
 @media (max-device-width: 380px) {
 	.container h2 {
