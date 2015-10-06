@@ -33,9 +33,9 @@ footer {
 .jumbotron {
   position: relative;
   background-color: #fff;
-  max-width: 100%;
+  max-width: 80%;
   height: 325px;
-  margin-bottom: 0px;
+  margin: auto;
   padding-bottom: 0px;
 }
 .jumbotron img {
@@ -157,7 +157,7 @@ a.locked {
 		font-size: 8px bold;
 		height: 340px;}
 }
-@media (max-device-width: 400px) {
+@media (max-device-width: 380px) {
 	.container h2 {
 		font-size: 10px;}
 	.container p {
