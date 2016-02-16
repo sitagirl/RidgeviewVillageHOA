@@ -1,65 +1,33 @@
-function Login()
-{
-    if(empty($_POST['username']))
-    {
-        $this->HandleError("UserName is empty!");
-        return false;
-    }
-     
-    if(empty($_POST['password']))
-    {
-        $this->HandleError("Password is empty!");
-        return false;
-    }
-     
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
-     
-    if(!$this->CheckLoginInDB($username,$password))
-    {
-        return false;
-    }
-     
-    session_start();
-     
-    $_SESSION[$this->GetLoginSessionVar()] = $username;
-     
-    return true;
-}
+$(document).ready(function(){
+    
+  $("#submit").click(function(){
 
-function CheckLoginInDB($username,$password)
-{
-    if(!$this->DBLogin())
-    {
-        $this->HandleError("Database login failed!");
-        return false;
-    }          
-    $username = $this->SanitizeForSQL($username);
-    $pwdmd5 = md5($password);
-    $qry = "Select name, email from $this->tablename ".
-        " where username='$username' and password='$pwdmd5' ".
-        " and confirmcode='y'";
-     
-    $result = mysql_query($qry,$this->connection);
-     
-    if(!$result || mysql_num_rows($result) <= 0)
-    {
-        $this->HandleError("Error logging in. ".
-            "The username or password does not match");
-        return false;
+    var username = $("#username").val();
+    var password = $("#password").val();
+    
+    if((username == "") || (password == "")) {
+      $("#message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Please enter a username and a password</div>");
     }
-    return true;
-}
-
-function CheckLogin()
-{
-     session_start();
- 
-     $sessionvar = $this->GetLoginSessionVar();
-      
-     if(empty($_SESSION[$sessionvar]))
-     {
-        return false;
-     }
-     return true;
-}
+    else {
+      $.ajax({
+        type: "POST",
+        url: "checklogin.php",
+        data: "myusername="+username+"&mypassword="+password,
+        success: function(html){    
+          if(html=='true') {
+/*            window.location="index.php";  */
+			  locker();
+          }
+          else {
+            $("#message").html(html);
+          }
+        },
+        beforeSend:function()
+        {
+          $("#message").html("<p class='text-center'><img src='images/ajax-loader.gif'></p>")
+        }
+      });
+    }
+    return false;
+  });
+});
